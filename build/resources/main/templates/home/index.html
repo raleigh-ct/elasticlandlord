@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1>User Home</h1>
+
+<header th:fragment="header">
+    <h1 th:text="${title}">Elastic Landlord</h1>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/home/add">Add New Property</a></li>
+    </ul>
+</header>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Property ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Property Type</th>
+        <th>Units</th>
+    </tr>
+    </thead>
+    <tr th:each="property : ${properties}">
+        <td th:text="${property.id}"></td>
+        <td th:text="${property.propertyName}"></td>
+        <td th:text="${property.propertyDescription}"></td>
+        <td th:text="${property.propertyType.displayName}"></td>
+        <td th:text="${property.unitCount}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

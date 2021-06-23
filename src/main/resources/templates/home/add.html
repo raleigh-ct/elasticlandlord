@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<form method="post">
+    <div class="form-group">
+        <label>Name
+            <input th:field="${property.propertyName}" class="form-control">
+        </label>
+        <p class="error" th:errors="${property.propertyName}"></p>
+    </div>
+    <div class="form-group">
+        <label>Description
+            <input th:field="${property.propertyDescription}" class="form-control">
+        </label>
+        <p class="error" th:errors="${property.propertyDescription}"></p>
+    </div>
+    <div class="form-group">
+        <label>Property Type
+            <select th:field="${property.propertyType}">
+                <option th:each="type : ${types}"
+                        th:value="${type}"
+                        th:text="${type.displayName}"
+                ></option>
+            </select>
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Number of Units
+            <input th:field="${property.unitCount}" class="form-control">
+        </label>
+        <p class="error" th:errors="${property.unitCount}"></p>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+</form>
+
+</body>
+</html>

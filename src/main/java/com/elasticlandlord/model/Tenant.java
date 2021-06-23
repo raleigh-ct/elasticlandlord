@@ -30,7 +30,7 @@ public class Tenant extends AbstractIdEntity{
     private LocalDate leaseActionDate;
 
     // Many Tenants can be tied to the same propertyId?
-//    @ManyToOne
+//    @ManyToOne (mappedBy = "id")
 //    private int propertyId;
 
 

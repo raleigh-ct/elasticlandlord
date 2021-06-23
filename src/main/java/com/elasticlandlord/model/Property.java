@@ -1,5 +1,7 @@
 package com.elasticlandlord.model;
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -15,13 +17,13 @@ public class Property extends AbstractIdEntity{
     @Size(max = 400, message = "Property description must be less than 400 characters")
     private String propertyDescription;
 
-    @Size(max = 99, message = "Properties with more than 99 units are not supported")
+    @Range(min = 1, max = 99, message = "Properties with more than 99 units are not supported")
     private int unitCount;
 
     private PropertyType propertyType;
 
     // Correct way to map?
-//    @OneToMany (mappedBy = "propertyId")
+//    @OneToMany (mappedBy = "id")
 //    private List<Tenant> tenants = new ArrayList<>();
 
     // Haven't added tenants into constructor, not mandatory
