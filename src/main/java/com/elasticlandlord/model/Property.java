@@ -3,8 +3,11 @@ package com.elasticlandlord.model;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -22,9 +25,9 @@ public class Property extends AbstractIdEntity{
 
     private PropertyType propertyType;
 
-    // Correct way to map?
-//    @OneToMany (mappedBy = "id")
-//    private List<Tenant> tenants = new ArrayList<>();
+//     Correct way to map?
+    @OneToMany(mappedBy = "propertyId")
+    private List<Tenant> tenants = new ArrayList<>();
 
     // Haven't added tenants into constructor, not mandatory
     public Property(String propertyName, String propertyDescription, int unitCount, PropertyType propertyType) {
@@ -44,6 +47,15 @@ public class Property extends AbstractIdEntity{
     public void setUnitCount(int unitCount) { this.unitCount = unitCount; }
     public PropertyType getPropertyType() { return propertyType; }
     public void setPropertyType(PropertyType propertyType) { this.propertyType = propertyType; }
-//    public List<Tenant> getTenants() { return tenants; }
-//    public void setTenants(List<Tenant> tenants) { this.tenants = tenants; }
+    public List<Tenant> getTenants() { return tenants; }
+    public void setTenants(List<Tenant> tenants) { this.tenants = tenants; }
+
+    public void addTenant(Tenant tenant) {
+        this.tenants.add(tenant);
+    }
+
+    @Override
+    public String toString() {
+        return propertyName;
+    }
 }

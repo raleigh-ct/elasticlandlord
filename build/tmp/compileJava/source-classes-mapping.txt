@@ -4,15 +4,15 @@ com/elasticlandlord/ElasticlandlordApplication.java
  com.elasticlandlord.ElasticlandlordApplication
 com/elasticlandlord/model/PropertyType.java
  com.elasticlandlord.model.PropertyType
-com/elasticlandlord/model/Tenant.java
- com.elasticlandlord.model.Tenant
+com/elasticlandlord/controllers/LandingPageController.java
+ com.elasticlandlord.controllers.LandingPageController
 com/elasticlandlord/data/PropertyRepository.java
  com.elasticlandlord.data.PropertyRepository
 com/elasticlandlord/data/TenantRepository.java
  com.elasticlandlord.data.TenantRepository
-com/elasticlandlord/controllers/LandingPageController.java
- com.elasticlandlord.controllers.LandingPageController
-com/elasticlandlord/model/Property.java
- com.elasticlandlord.model.Property
 com/elasticlandlord/controllers/HomeController.java
  com.elasticlandlord.controllers.HomeController
+com/elasticlandlord/model/Property.java
+ com.elasticlandlord.model.Property
+com/elasticlandlord/model/Tenant.java
+ com.elasticlandlord.model.Tenant
