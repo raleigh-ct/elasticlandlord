@@ -18,11 +18,15 @@ com/elasticlandlord/model/dto/RegisterFormDTO.java
  com.elasticlandlord.model.dto.RegisterFormDTO
 com/elasticlandlord/data/UserRepository.java
  com.elasticlandlord.data.UserRepository
-com/elasticlandlord/controllers/AuthenticationController.java
- com.elasticlandlord.controllers.AuthenticationController
+com/elasticlandlord/model/Tenant.java
+ com.elasticlandlord.model.Tenant
 com/elasticlandlord/model/User.java
  com.elasticlandlord.model.User
 com/elasticlandlord/model/dto/LoginFormDTO.java
  com.elasticlandlord.model.dto.LoginFormDTO
-com/elasticlandlord/model/Tenant.java
- com.elasticlandlord.model.Tenant
+com/elasticlandlord/WebApplicationConfig.java
+ com.elasticlandlord.WebApplicationConfig
+com/elasticlandlord/AuthenticationFilter.java
+ com.elasticlandlord.AuthenticationFilter
+com/elasticlandlord/controllers/AuthenticationController.java
+ com.elasticlandlord.controllers.AuthenticationController
