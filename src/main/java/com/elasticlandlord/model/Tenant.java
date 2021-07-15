@@ -1,6 +1,7 @@
 package com.elasticlandlord.model;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -28,15 +29,16 @@ public class Tenant extends AbstractIdEntity{
     private LocalDate leaseActionDate;
 
     // Many Tenants can be tied to the same propertyId?
-    private int propertyId;
+    @ManyToOne
+    private Property prop;
 
-    public Tenant(String tenantName, String tenantTwoName, int leaseLengthMonths, LocalDate leaseSignedDate, LocalDate leaseActionDate, int propertyId) {
+    public Tenant(String tenantName, String tenantTwoName, int leaseLengthMonths, LocalDate leaseSignedDate, LocalDate leaseActionDate, Property property) {
         this.tenantName = tenantName;
         this.tenantTwoName = tenantTwoName;
         this.leaseLengthMonths = leaseLengthMonths;
         this.leaseSignedDate = leaseSignedDate;
         this.leaseActionDate = leaseActionDate;
-        this.propertyId = propertyId;
+        this.prop = property;
     }
 
     public Tenant(){};
@@ -51,8 +53,8 @@ public class Tenant extends AbstractIdEntity{
     public void setLeaseSignedDate(LocalDate leaseSignedDate) { this.leaseSignedDate = leaseSignedDate; }
     public LocalDate getLeaseActionDate() { return leaseActionDate; }
     public void setLeaseActionDate(LocalDate leaseActionDate) { this.leaseActionDate = leaseActionDate; }
-    public int getPropertyId() { return propertyId; }
-    public void setPropertyId(int propertyId) { this.propertyId = propertyId; }
+    public Property getPropertyId() { return prop; }
+    public void setPropertyId(Property propertyId) { this.prop = propertyId; }
 
     @Override
     public String toString() {
