@@ -20,7 +20,7 @@ public class Property extends AbstractIdEntity{
     @Size(max = 400, message = "Property description must be less than 400 characters")
     private String propertyDescription;
 
-    @Range(min = 1, max = 99, message = "Properties with more than 99 units are not supported")
+    @Range(min = 1, max = 99, message = "Only properties with 1-99 units are supported")
     private int unitCount;
 
     private PropertyType propertyType;
