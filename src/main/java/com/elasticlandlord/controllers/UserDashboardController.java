@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("home")
-public class HomeController {
+public class UserDashboardController {
 
     @Autowired
     private PropertyRepository propertyRepository;
@@ -37,14 +37,14 @@ public class HomeController {
     }
 
     @PostMapping("add")
-    public String processAddPropertyForm(@ModelAttribute @Valid Property newEvent,
+    public String processAddPropertyForm(@ModelAttribute @Valid Property newProp,
                                          Errors errors, Model model) {
         if(errors.hasErrors()) {
             model.addAttribute("title", "Add Property");
             return "home/add";
         }
 
-        propertyRepository.save(newEvent);
+        propertyRepository.save(newProp);
         return "redirect:";
     }
 

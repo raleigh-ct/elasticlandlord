@@ -10,23 +10,23 @@ com/elasticlandlord/data/PropertyRepository.java
  com.elasticlandlord.data.PropertyRepository
 com/elasticlandlord/data/TenantRepository.java
  com.elasticlandlord.data.TenantRepository
-com/elasticlandlord/controllers/HomeController.java
- com.elasticlandlord.controllers.HomeController
-com/elasticlandlord/model/Property.java
- com.elasticlandlord.model.Property
+com/elasticlandlord/controllers/AuthenticationController.java
+ com.elasticlandlord.controllers.AuthenticationController
+com/elasticlandlord/AuthenticationFilter.java
+ com.elasticlandlord.AuthenticationFilter
 com/elasticlandlord/model/dto/RegisterFormDTO.java
  com.elasticlandlord.model.dto.RegisterFormDTO
 com/elasticlandlord/data/UserRepository.java
  com.elasticlandlord.data.UserRepository
-com/elasticlandlord/model/Tenant.java
- com.elasticlandlord.model.Tenant
+com/elasticlandlord/WebApplicationConfig.java
+ com.elasticlandlord.WebApplicationConfig
 com/elasticlandlord/model/User.java
  com.elasticlandlord.model.User
 com/elasticlandlord/model/dto/LoginFormDTO.java
  com.elasticlandlord.model.dto.LoginFormDTO
-com/elasticlandlord/WebApplicationConfig.java
- com.elasticlandlord.WebApplicationConfig
-com/elasticlandlord/AuthenticationFilter.java
- com.elasticlandlord.AuthenticationFilter
-com/elasticlandlord/controllers/AuthenticationController.java
- com.elasticlandlord.controllers.AuthenticationController
+com/elasticlandlord/controllers/UserDashboardController.java
+ com.elasticlandlord.controllers.UserDashboardController
+com/elasticlandlord/model/Property.java
+ com.elasticlandlord.model.Property
+com/elasticlandlord/model/Tenant.java
+ com.elasticlandlord.model.Tenant
