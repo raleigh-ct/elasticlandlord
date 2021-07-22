@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:fragment="header">
+    <h1 th:text="${title}">Elastic Landlord</h1>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/home/index">View Properties</a></li>
+    </ul>
+</header>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Tenant ID</th>
+        <th>Name</th>
+        <th>Co-Signer Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Lease Type</th>
+        <th>Lease Length</th>
+        <th>Lease Signed Date</th>
+        <th>Lease End Date</th>
+    </tr>
+    </thead>
+    <tr th:each="tenant : ${tenants}">
+        <td th:text="${tenant.id}"></td>
+        <td th:text="${tenant.tenantName}"></td>
+        <td th:text="${tenant.cosignerName}"></td>
+        <td th:text="${tenant.phone}"></td>
+        <td th:text="${tenant.email}"></td>
+        <td th:text="${tenant.leaseType.displayName}"></td>
+        <td th:text="${tenant.leaseLengthMonths}"></td>
+        <td th:text="${tenant.leaseSignedDate}"></td>
+        <td th:text="${tenant.leaseEndDate}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

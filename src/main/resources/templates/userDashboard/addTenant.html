@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<form method="post">
+    <div class="form-group">
+        <label>Tenant Name
+            <input th:field="${tenant.tenantName}" class="form-control">
+        </label>
+        <p class="error" th:errors="${tenant.tenantName}"></p>
+    </div>
+    <div class="form-group">
+        <label>Tenant Co-Signer
+            <input th:field="${tenant.cosignerName}" class="form-control">
+        </label>
+        <p class="error" th:errors="${tenant.cosignerName}"></p>
+    </div>
+    <div class="form-group">
+        <label>Lease Type
+            <select th:field="${tenant.leaseType}">
+                <option th:each="type : ${types}"
+                        th:value="${type}"
+                        th:text="${type.displayName}"
+                ></option>
+            </select>
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Length of Lease
+            <input type="number" th:field="${tenant.leaseLengthMonths}" class="form-control">
+        </label>
+        <p class="error" th:errors="${tenant.leaseLengthMonths}"></p>
+    </div>
+    <div class="form-group">
+        <label>Lease Sign Date
+            <input type="date" th:field="${tenant.leaseSignedDate}" class="form-control">
+        </label>
+        <p class="error" th:errors="${tenant.leaseSignedDate}"></p>
+    </div>
+    <div class="form-group">
+        <label>Lease End Date
+            <input type="date" th:field="${tenant.leaseEndDate}" class="form-control">
+        </label>
+        <p class="error" th:errors="${tenant.leaseEndDate}"></p>
+    </div>
+    <div class="form-group">
+        <!--Is this whole mess set up right?-->
+        <label>Property
+            <select th:field="${tenant.prop}">
+                <option th:each="prop : ${properties}"
+                        th:value="${property.id}"
+                        th:text="${property.propertyName}"
+                ></option>
+            </select>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+</form>
+
+</body>
+</html>

@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Tenant extends AbstractIdEntity{
@@ -14,30 +14,33 @@ public class Tenant extends AbstractIdEntity{
     private String tenantName;
 
     @Size(min = 3, max = 75, message = "Tenant name must be between 3 and 75 characters")
-    private String tenantTwoName;
+    private String cosignerName;
 
-    // Should I make another enum for month-to-month, months, year?
+    @NotBlank
+    private LeaseType leaseType;
+
     @NotBlank
     private int leaseLengthMonths;
 
     // Is this the right data type?
     @NotBlank
-    private LocalDate leaseSignedDate;
+    private Date leaseSignedDate;
 
     // Is this the right data type?
     @NotBlank
-    private LocalDate leaseActionDate;
+    private Date leaseEndDate;
 
     // Many Tenants can be tied to the same propertyId?
     @ManyToOne
     private Property prop;
 
-    public Tenant(String tenantName, String tenantTwoName, int leaseLengthMonths, LocalDate leaseSignedDate, LocalDate leaseActionDate, Property property) {
+    public Tenant(String tenantName, String cosignerName, LeaseType leaseType, int leaseLengthMonths, Date leaseSignedDate, Date leaseEndDate, Property property) {
         this.tenantName = tenantName;
-        this.tenantTwoName = tenantTwoName;
+        this.cosignerName = cosignerName;
+        this.leaseType = leaseType;
         this.leaseLengthMonths = leaseLengthMonths;
         this.leaseSignedDate = leaseSignedDate;
-        this.leaseActionDate = leaseActionDate;
+        this.leaseEndDate = leaseEndDate;
         this.prop = property;
     }
 
@@ -45,14 +48,16 @@ public class Tenant extends AbstractIdEntity{
 
     public String getTenantName() { return tenantName; }
     public void setTenantName(String tenantName) { this.tenantName = tenantName; }
-    public String getTenantTwoName() { return tenantTwoName; }
-    public void setTenantTwoName(String tenantTwoName) { this.tenantTwoName = tenantTwoName; }
+    public String getCosignerName() { return cosignerName; }
+    public void setCosignerName(String cosignerName) { this.cosignerName = cosignerName; }
+    public LeaseType getLeaseType() { return leaseType; }
+    public void setLeaseType(LeaseType leaseType) { this.leaseType = leaseType; }
     public int getLeaseLengthMonths() { return leaseLengthMonths; }
     public void setLeaseLengthMonths(int leaseLengthMonths) { this.leaseLengthMonths = leaseLengthMonths; }
-    public LocalDate getLeaseSignedDate() { return leaseSignedDate; }
-    public void setLeaseSignedDate(LocalDate leaseSignedDate) { this.leaseSignedDate = leaseSignedDate; }
-    public LocalDate getLeaseActionDate() { return leaseActionDate; }
-    public void setLeaseActionDate(LocalDate leaseActionDate) { this.leaseActionDate = leaseActionDate; }
+    public Date getLeaseSignedDate() { return leaseSignedDate; }
+    public void setLeaseSignedDate(Date leaseSignedDate) { this.leaseSignedDate = leaseSignedDate; }
+    public Date getLeaseEndDate() { return leaseEndDate; }
+    public void setLeaseEndDate(Date leaseActionDate) { this.leaseEndDate = leaseActionDate; }
     public Property getPropertyId() { return prop; }
     public void setPropertyId(Property propertyId) { this.prop = propertyId; }
 
